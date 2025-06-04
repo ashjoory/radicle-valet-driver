@@ -3,7 +3,7 @@
   "description": "Custom Valet driver for Bedrock/Radicle setup",
   "type": "library",
   "license": "MIT",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "keywords": [
     "valet",
     "wordpress",
@@ -17,7 +17,13 @@
   },
   "scripts": {
     "post-install-cmd": [
-      "@php -r \"if (file_exists('vendor/ashjoory/radicle-valet-driver/src/LocalValetDriver.php')) { copy('vendor/ashjoory/radicle-valet-driver/src/LocalValetDriver.php', 'LocalValetDriver.php'); if (!file_exists('.gitignore') || !preg_match('/^LocalValetDriver\\.php$/m', file_get_contents('.gitignore'))) file_put_contents('.gitignore', PHP_EOL . 'LocalValetDriver.php', FILE_APPEND); }\""
+      "@php -r \"if (file_exists('vendor/ashjoory/radicle-valet-driver/src/LocalValetDriver.php')) { copy('vendor/ashjoory/radicle-valet-driver/src/LocalValetDriver.php', 'LocalValetDriver.php'); echo 'LocalValetDriver.php copied successfully.\\n'; if (!file_exists('.gitignore') || !preg_match('/^LocalValetDriver\\.php$/m', file_get_contents('.gitignore'))) file_put_contents('.gitignore', \"\\nLocalValetDriver.php\", FILE_APPEND); }\""
+    ],
+    "post-update-cmd": [
+      "@php -r \"if (file_exists('vendor/ashjoory/radicle-valet-driver/src/LocalValetDriver.php')) { copy('vendor/ashjoory/radicle-valet-driver/src/LocalValetDriver.php', 'LocalValetDriver.php'); echo 'LocalValetDriver.php copied successfully.\\n'; if (!file_exists('.gitignore') || !preg_match('/^LocalValetDriver\\.php$/m', file_get_contents('.gitignore'))) file_put_contents('.gitignore', \"\\nLocalValetDriver.php\", FILE_APPEND); }\""
+    ],
+    "post-remove-cmd": [
+      "@php -r \"if (file_exists('LocalValetDriver.php')) { unlink('LocalValetDriver.php'); echo 'LocalValetDriver.php deleted successfully.\\n'; } if (file_exists('.gitignore')) { $gi = file('.gitignore', FILE_IGNORE_NEW_LINES); $gi = array_filter($gi, fn($line) => trim($line) !== 'LocalValetDriver.php'); file_put_contents('.gitignore', implode(\"\\n\", $gi) . \"\\n\"); }\""
     ]
   }
 }
