@@ -1,0 +1,21 @@
+{
+  "name": "ashjoory/radicle-valet-driver",
+  "description": "Custom Valet driver for Bedrock/Radicle setup",
+  "type": "library",
+  "autoload": {
+    "files": [
+      "src/LocalValetDriver.php"
+    ]
+  },
+  "require": {
+    "php": ">=7.4"
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "@php -r \"copy('vendor/ashjoory/radicle-valet-driver/src/LocalValetDriver.php', 'LocalValetDriver.php');\""
+    ],
+    "post-update-cmd": [
+      "@php -r \"copy('vendor/ashjoory/radicle-valet-driver/src/LocalValetDriver.php', 'LocalValetDriver.php');\""
+    ]
+  }
+}
