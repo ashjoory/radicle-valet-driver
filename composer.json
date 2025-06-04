@@ -3,7 +3,7 @@
   "description": "Custom Valet driver for Bedrock/Radicle setup",
   "type": "library",
   "license": "MIT",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "keywords": [
     "valet",
     "wordpress",
@@ -11,11 +11,7 @@
     "bedrock",
     "driver"
   ],
-  "autoload": {
-    "files": [
-      "src/LocalValetDriver.php"
-    ]
-  },
+  "autoload": {},
   "require": {
     "php": ">=8.0"
   },
