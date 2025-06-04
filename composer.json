@@ -3,7 +3,7 @@
   "description": "Custom Valet driver for Bedrock/Radicle setup",
   "type": "library",
   "license": "MIT",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "keywords": [
     "valet",
     "wordpress",
@@ -17,14 +17,17 @@
     ]
   },
   "require": {
-    "php": ">=7.4"
+    "php": ">=8.0"
   },
   "scripts": {
     "post-install-cmd": [
-      "@php -r \"copy('vendor/ashjoory/radicle-valet-driver/src/LocalValetDriver.php', 'LocalValetDriver.php');\""
+      "@php -r \"copy('vendor/ashjoory/radicle-valet-driver/src/LocalValetDriver.php', 'LocalValetDriver.php'); if (!file_exists('.gitignore') || !preg_match('/^LocalValetDriver\\.php$/m', file_get_contents('.gitignore'))) file_put_contents('.gitignore', PHP_EOL . 'LocalValetDriver.php', FILE_APPEND);\""
     ],
     "post-update-cmd": [
-      "@php -r \"copy('vendor/ashjoory/radicle-valet-driver/src/LocalValetDriver.php', 'LocalValetDriver.php');\""
+      "@php -r \"copy('vendor/ashjoory/radicle-valet-driver/src/LocalValetDriver.php', 'LocalValetDriver.php'); if (!file_exists('.gitignore') || !preg_match('/^LocalValetDriver\\.php$/m', file_get_contents('.gitignore'))) file_put_contents('.gitignore', PHP_EOL . 'LocalValetDriver.php', FILE_APPEND);\""
     ]
+  },
+  "require-dev": {
+    "ashjoory/radicle-valet-driver": "*"
   }
 }
