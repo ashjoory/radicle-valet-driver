@@ -3,7 +3,7 @@
   "description": "Custom Valet driver for Bedrock/Radicle setup",
   "type": "composer-plugin",
   "license": "MIT",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "keywords": [
     "valet",
     "wordpress",
