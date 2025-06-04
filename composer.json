@@ -1,9 +1,9 @@
 {
   "name": "ashjoory/radicle-valet-driver",
   "description": "Custom Valet driver for Bedrock/Radicle setup",
-  "type": "library",
+  "type": "composer-plugin",
   "license": "MIT",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "keywords": [
     "valet",
     "wordpress",
@@ -11,9 +11,14 @@
     "bedrock",
     "driver"
   ],
-  "autoload": {},
+  "autoload": {
+    "psr-4": {
+      "Ashjoory\\RadicleValetDriver\\": "src/"
+    }
+  },
   "require": {
-    "php": ">=8.0"
+    "php": ">=8.0",
+    "composer-plugin-api": "^2.0"
   },
   "scripts": {
     "post-install-cmd": [
@@ -25,5 +30,8 @@
     "post-remove-cmd": [
       "@php -r \"if (file_exists('LocalValetDriver.php')) { unlink('LocalValetDriver.php'); echo 'LocalValetDriver.php deleted successfully.\\n'; } if (file_exists('.gitignore')) { $gi = file('.gitignore', FILE_IGNORE_NEW_LINES); $gi = array_filter($gi, fn($line) => trim($line) !== 'LocalValetDriver.php'); file_put_contents('.gitignore', implode(\"\\n\", $gi) . \"\\n\"); }\""
     ]
+  },
+  "extra": {
+    "class": "Ashjoory\\RadicleValetDriver\\Plugin"
   }
 }
