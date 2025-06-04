@@ -1,4 +1,4 @@
-# Valet Custom Driver
+# Valet Custom Driver For Radicle Local Setup On Herd/Valet
 
 This package provides a custom Valet driver for Bedrock/Radicle-style WordPress projects. It automatically maps Valet to the `/public` directory and handles trailing slashes for `/wp/wp-admin`.
 
