@@ -2,6 +2,15 @@
   "name": "ashjoory/radicle-valet-driver",
   "description": "Custom Valet driver for Bedrock/Radicle setup",
   "type": "library",
+  "license": "MIT",
+  "version": "1.0.0",
+  "keywords": [
+    "valet",
+    "wordpress",
+    "radicle",
+    "bedrock",
+    "driver"
+  ],
   "autoload": {
     "files": [
       "src/LocalValetDriver.php"
